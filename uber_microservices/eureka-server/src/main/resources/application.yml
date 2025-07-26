@@ -1,0 +1,22 @@
+# Eureka Server - Service Discovery Registry
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+
+# Core Eureka server configuration
+eureka:
+  client:
+    register-with-eureka: false  # Server doesn't register itself
+    fetch-registry: false        # Server doesn't fetch from itself
+  server:
+    enable-self-preservation: false  # Disable for development
+
+# Basic health monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

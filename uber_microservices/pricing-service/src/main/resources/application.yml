@@ -1,0 +1,23 @@
+# Pricing Service - Calculates car booking costs (stateless)
+server:
+  port: 8082
+
+spring:
+  application:
+    name: pricing-service
+
+# No database needed - demonstrates stateless microservices
+# Uses in-memory data for business logic only
+
+# Service discovery
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+# Health monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

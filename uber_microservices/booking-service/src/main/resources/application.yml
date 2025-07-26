@@ -1,0 +1,26 @@
+# Booking Service - Handles cab booking (stateless)
+server:
+  port: 8081
+
+spring:
+  application:
+    name: booking-service
+
+# No database needed - demonstrates stateless microservices
+# Uses in-memory data for business logic only
+
+# Service discovery
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+# Health monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+pricing:
+  service-url: "http://pricing-service/api/pricing/calculate"
