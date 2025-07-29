@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.validation.valid;
-
 /*
  * LESSON NOTE: Simplified Pricing Controller
  * - Focuses on core pricing calculation functionality
@@ -36,7 +34,7 @@ public class PricingController {
      * - Returns pricing calculation (like fare calculation)
      */
     @PostMapping("/calculate")
-    public ResponseEntity<PricingResponse> calculateBookingPrice(@Valid @RequestBody BookingPricingRequest request) {
+    public ResponseEntity<PricingResponse> calculateBookingPrice(@RequestBody BookingPricingRequest request) {
         try {
             PricingResponse response = pricingService.calculateBookingPrice(request);
             return ResponseEntity.ok(response);

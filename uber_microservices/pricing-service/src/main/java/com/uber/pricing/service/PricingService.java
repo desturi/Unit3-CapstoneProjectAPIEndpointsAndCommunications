@@ -51,16 +51,16 @@ public class PricingService {
         }
 
         // Simple complexity based on car category mentioned
-        String carCategory = city.toLowerCase();
+        String location = city.toLowerCase();
         double factor = 1.0;
 
-        if (carCategory.contains("premium") || carCategory.contains("limousine")) {
+        if (location.contains("newyork") || location.contains("califorina")) {
             factor += 0.5;
         }
-        if (carCategory.contains("semi-premium") || carCategory.contains("audi")) {
+        if (location.contains("seattle") || location.contains("chicago")) {
             factor += 0.3;
         }
-        if (carCategory.contains("regular") || carCategory.contains("tesla")) {
+        if (location.contains("bentonvil") || location.contains("bostonZ")) {
             factor -= 0.1;
         }
 
