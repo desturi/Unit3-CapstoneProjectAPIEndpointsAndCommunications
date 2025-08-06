@@ -1,0 +1,63 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+    <div class="form-group">
+      <label for="customerName">Customer Name:</label>
+      <input
+              type="text"
+              id="customerName"
+              name="customerName"
+              [(ngModel)]="bookingRequest.customerName"
+              placeholder="Enter customer name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="city">City:</label>
+      <textarea
+              id="city"
+              name="city"
+              [(ngModel)]="bookingRequest.city"
+              placeholder="Enter City (e.g., New York, California)"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="numberOfPeople">Number of People:</label>
+      <input
+              type="number"
+              id="numberOfPeople"
+              name="numberOfPeople"
+              [(ngModel)]="bookingRequest.numberOfPeople"
+              placeholder="Enter number of people">
+    </div>
+
+    <button type="submit"[disabled]="bookingForm.invalid">
+      Create Booking
+    </button>
+    <button type="button" (click)="clearForm()">
+      Clear Form
+    </button>
+  </form>
+
+  <div *ngIf="loading" class="loading">
+    <p>Processing your booking...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="response error">
+    <h3>Error</h3>
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <div *ngIf="bookingResponse" class="response success">
+    <h3>Booking Created Successfully!</h3>
+    <div class="booking-details">
+      <h4>Booking Details</h4>
+      <p><strong>Booking ID:</strong> {{ bookingResponse.bookingId }}</p>
+      <p><strong>Customer:</strong> {{ bookingResponse.customerName }}</p>
+      <p><strong>City:</strong> {{ bookingResponse.city }}</p>
+      <p><strong>Number of People:</strong> {{ bookingResponse.numberOfPeople }}</p>
+      <p><strong>Status:</strong> {{ bookingResponse.status }}</p>
+      <p class="total-price"><strong>Total Price: ${{ bookingResponse.totalPrice | number:'1.2-2' }}</strong></p>
+    </div>
+  </div>
+</div>

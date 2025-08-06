@@ -60,7 +60,7 @@ public class PricingService {
         if (location.contains("seattle") || location.contains("chicago")) {
             factor += 0.3;
         }
-        if (location.contains("bentonvil") || location.contains("bostonZ")) {
+        if (location.contains("bentonvil") || location.contains("boston")) {
             factor -= 0.1;
         }
 

@@ -1,12 +1,12 @@
 package com.uber.booking.dto;
 
 /*
- * LESSON NOTE: Booking Response DTO - Booking Service to Client Communication
+ * LESSON NOTE: booking Response DTO - booking Service to Client Communication
  *
- * This DTO represents the data that the BOOKING SERVICE sends BACK to the CLIENT
+ * This DTO represents the data that the booking SERVICE sends BACK to the CLIENT
  * after successfully creating an booking.
  *
- * Data Flow: Booking Service → CLIENT (via REST API response)
+ * Data Flow: booking Service → CLIENT (via REST API response)
  *
  * - Contains booking confirmation details with generated booking ID
  * - Includes calculated total from pricing service
@@ -50,6 +50,10 @@ public class BookingResponse {
     public double getTotalPrice() { return totalPrice; }
     public void setTotalPrice(double totalPrice) { this.totalPrice = totalPrice; }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
